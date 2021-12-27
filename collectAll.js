@@ -1,6 +1,6 @@
 const ethers = require('ethers');
 require("dotenv").config();
-const provider = new ethers.providers.JsonRpcProvider("https://eth-goerli.alchemyapi.io/v2/OePDKEAtMy2lr5W5J8aBCML6qYmeCaFX");
+const provider = new ethers.providers.JsonRpcProvider("https://eth-goerli.alchemyapi.io/v2/yjcYEFTKg9ZVuZOIW1u4UkU6EdcPeG3i");
 const INTERVAL = 30;//Run every 30 minutes
 const abi = require("./ABI/abi.json");
 let tokensMap = new Map();
@@ -25,6 +25,9 @@ tokensMap.set('Baikal', '0x0617A90edF7F8412133C839cbDe409aAC589280C');
 tokensMap.set('Santa', '0xe654d4db9893556011b354b4360ced426f823f35');
 
 let keys = process.env.KEYS.split(",");
+for (let key of keys) {
+    start(key);
+}
 setInterval(function () {
     for (let key of keys) {
         start(key);
