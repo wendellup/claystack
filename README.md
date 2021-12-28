@@ -3,6 +3,7 @@
 
 ### Setting up
 * git clone https://github.com/ericet/claystack.git
+* cd claystack
 * npm install
 * mv .env.example .env
 * Put your private key(keys) into KEYS field. Eg: KEYS=000000000,011111111,0222222222
@@ -21,6 +22,7 @@ If you find this script is useful to you, donation will be appreciated: **0x434D
 ---
 ## 设置
 * git clone https://github.com/ericet/claystack.git
+* cd claystack
 * npm install
 * 文件改名
   * mv .env.example .env
