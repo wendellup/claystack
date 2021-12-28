@@ -2,7 +2,7 @@ const ethers = require('ethers');
 require("dotenv").config();
 const INTERVAL = 1;//Run every 1 minute
 let abi = require("./ABI/claystack.json");
-const provider = new ethers.providers.JsonRpcProvider("https://eth-goerli.alchemyapi.io/v2/OePDKEAtMy2lr5W5J8aBCML6qYmeCaFX");
+const provider = new ethers.providers.JsonRpcProvider(process.env.API);
 let contractAddr = "0x7b067b776dec24cf0c2390e76dea20217e75d9f7";
 let keys = process.env.KEYS.split(",");
 for (let key of keys) {
