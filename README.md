@@ -13,7 +13,7 @@
 ## Register the address and start play the game
 * `node register.js`
 
-### Auto Claiming the package
+### Auto Claiming the package(Update: Official updated the contract, you need 0.2 ETH to claim each time)
 * `node claim.js` 
 
 
@@ -36,7 +36,7 @@ If you find this script is useful to you, donation will be appreciated: **0x434D
 ## 注册钱包，开始游戏
 `node register.js`
 
-## 运行自动领取程序
+## 运行自动领取程序(更新：官方修改了合约，现在领取每次需要0.2 ETH)
 node claim.js
 
 ## 运行归集程序

@@ -36,13 +36,15 @@ async function start(privateKey) {
     const claystack = new ethers.Contract(contractAddr, abi, provider);
     const signer = claystack.connect(wallet);
     let isStart = await getUserStart(wallet.address);
+    console.log(ethers.utils.parseEther("1.0"))
     if (isStart) {
         let nextClaim = await getNextClaim(wallet.address);
         console.log(`${wallet.address} next claim in ${nextClaim} seconds`);
         if (nextClaim == 0) {
             const tx = await signer.package({
                 gasPrice: await provider.getGasPrice(),
-                gasLimit: 500000
+                gasLimit: 500000,
+                value: ethers.utils.parseEther("0.2")
             });
             console.log(`${wallet.address} claimed the package`);
         }
