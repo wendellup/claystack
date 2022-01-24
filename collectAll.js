@@ -1,6 +1,8 @@
 const ethers = require('ethers');
 require("dotenv").config();
-const provider = new ethers.providers.JsonRpcProvider(process.env.API);
+const provider = new ethers.providers.JsonRpcProvider("https://eth-goerli.alchemyapi.io/v2/PW-CqflHcDdT6qnov8gCvBcrA0js50UC");
+
+// const provider = new ethers.providers.JsonRpcProvider("https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161");
 const INTERVAL = 30;//Run every 30 minutes
 const abi = require("./ABI/abi.json");
 let tokensMap = new Map();
@@ -25,14 +27,21 @@ tokensMap.set('Baikal', '0x0617A90edF7F8412133C839cbDe409aAC589280C');
 tokensMap.set('Santa', '0xe654d4db9893556011b354b4360ced426f823f35');
 
 let keys = process.env.KEYS.split(",");
+// setInterval(function () {
+//     for (let key of keys) {
+//         start(key);
+//     }
+// // }, INTERVAL * 60 * 1000);
+// }, 60 * 60*1000);
+
 for (let key of keys) {
     start(key);
 }
-setInterval(function () {
-    for (let key of keys) {
-        start(key);
-    }
-}, INTERVAL * 60 * 1000);
+
+// 函数实现，参数单位 毫秒 ；
+function wait(ms) {
+    return new Promise(resolve =>setTimeout(() =>resolve(), ms));
+};
 
 async function start(privateKey) {
     const wallet = new ethers.Wallet(privateKey, provider);
@@ -40,6 +49,7 @@ async function start(privateKey) {
     let nonce = await provider.getTransactionCount(wallet.address);
 
     for (let [key, token] of tokensMap) {
+        await wait(300);
         let balance = await getBalance(token, wallet.address);
 
         if (wallet.address != process.env.TO && balance > 0) {
