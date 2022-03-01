@@ -9,11 +9,11 @@
 * mv .env.example .env
 * Put your private key(keys) into KEYS field. Eg: KEYS=000000000,011111111,0222222222
 * There is requests limit on the default API I provided in the .env. So it's better to get yourself a own API from https://www.alchemy.com/ or https://infura.io/ (Goerli Network and Rinkeby Network)
-
-## Claiming Faucet, Staking, Unstaking and claim stake for Goerli Network
+* You need a little bit of GETH and ETH(Rinkeby) 
+## Claiming from Faucet, Staking, Unstaking and claim stake for Goerli Network
 * `node victoria_goerli.js`
 
-## Claiming Faucet, Staking, Unstaking and claim stake for Rinkeby Network
+## Claiming from Faucet, Staking, Unstaking and claim stake for Rinkeby Network
 * `node victoria_rinkeby.js`
 
 ### Check ranking
@@ -31,11 +31,11 @@ If you find this script is useful to you, donation will be appreciated: **0x434D
   * mv .env.example .env
 * 把私钥放在.env 文件里面的KEYS后面。比如：KEYS=000000000,011111111,0222222222
 * .env文件里面配置的API有请求限制，所以最好申请一个自己的API。你可以通过https://www.alchemy.com/ 或者 https://infura.io/ 申请API（Goerli和Rinkeby网络)
-
-## 自动领水，质押，解除质押和领取解除的质押（Goerli网络)
+* 钱包需要一点的GETH(Goerli)和ETH(Rinbeky)才能运行脚本
+## 自动领测试币(MATIC)，质押，解除质押和领取解除的质押（Goerli网络)
 * `node victoria_goerli.js`
 
-## 自动领水，质押，解除质押和领取解除的质押（Rinkeby网络)
+## 自动领测试币(GRT)，质押，解除质押和领取解除的质押（Rinkeby网络)
 * `node victoria_rinkeby.js`
 
 ## 查看排名和积分
