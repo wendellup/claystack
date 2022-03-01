@@ -38,6 +38,9 @@ If you find this script is useful to you, donation will be appreciated: **0x434D
 ## 自动领水，质押，解除质押和领取解除的质押（Rinkeby网络)
 * `node victoria_rinkeby.js`
 
+## 查看排名和积分
+* `node victoria_ranking.js`
+
 
 
 如果你觉得脚本帮助到你，可以捐献一点心意。钱包地址：**0x434DCffCF7dABd48B284860C27ebd184C91341F5**, 各链通用. 谢谢！
