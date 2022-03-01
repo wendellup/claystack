@@ -1,6 +1,6 @@
 const ethers = require('ethers');
 require("dotenv").config();
-const provider = new ethers.providers.JsonRpcProvider(process.env.API);
+const provider = new ethers.providers.JsonRpcProvider(process.env.GOERLI_API);
 const INTERVAL = 30;//Run every 30 minutes
 const abi = require("./ABI/abi.json");
 let tokensMap = new Map();

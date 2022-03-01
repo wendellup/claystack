@@ -2,7 +2,7 @@ const ethers = require('ethers');
 require("dotenv").config();
 const axios = require('axios')
 let abi = require("./ABI/claystack.json");
-const provider = new ethers.providers.JsonRpcProvider(process.env.API);
+const provider = new ethers.providers.JsonRpcProvider(process.env.GOERLI_API);
 let contractAddr = "0x7b067b776deC24CF0c2390e76Dea20217e75D9F7";
 let keys = process.env.KEYS.split(",");
 for (let key of keys) {
