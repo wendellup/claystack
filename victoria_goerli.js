@@ -175,11 +175,14 @@ function getClaimableOrders(myAddress) {
                                 claimOrders = []
                             } else {
                                 claimOrders = arrayRemove[claimOrders, orderId];
+                                if(claimOrders==undefined){
+                                    claimOrders=[];
+                                }
                             }
                         }
                     } else {
                         let currentTimestamp = Math.floor((new Date().getTime()) / 1000);
-                        if (currentTimestamp - withdrewTimestamp > 46800) {
+                        if (currentTimestamp - withdrewTimestamp > 66800) {
                             claimOrders.push(orderId);
                         }
                     }

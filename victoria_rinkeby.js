@@ -179,6 +179,9 @@ function getClaimableOrders(myAddress) {
                                 claimOrders = []
                             } else {
                                 claimOrders = arrayRemove[claimOrders, orderId];
+                                if(claimOrders==undefined){
+                                    claimOrders=[];
+                                }
                             }
                         }
                     } else {
@@ -196,27 +199,28 @@ function getClaimableOrders(myAddress) {
 }
 async function start(privateKey) {
     const wallet = new ethers.Wallet(privateKey, provider);
-    let coolDown = await getUserCoolDown(wallet.address);
-    if (coolDown == 0) {
-        await claimFaucetGrt(wallet);
-        await sleep(10000);
-    }
+    // let coolDown = await getUserCoolDown(wallet.address);
+    // if (coolDown == 0) {
+    //     await claimFaucetGrt(wallet);
+    //     await sleep(10000);
+    // }
 
-    let grtBalance = await getTokenBalance(wallet.address, grtContract);
-    if (grtBalance > 1000000) {
-        let isApproved = await hasApproved(grtContract, wallet.address, grtStakingContract);
-        if (!isApproved) {
-            await approve(wallet, grtContract, grtStakingContract);
-        }
-        await depositToken(wallet, grtBalance - 1000000);
-    }
+    // let grtBalance = await getTokenBalance(wallet.address, grtContract);
+    // if (grtBalance > 1000000) {
+    //     let isApproved = await hasApproved(grtContract, wallet.address, grtStakingContract);
+    //     if (!isApproved) {
+    //         await approve(wallet, grtContract, grtStakingContract);
+    //     }
+    //     await depositToken(wallet, grtBalance - 1000000);
+    // }
 
-    let csMaticBalance = await getTokenBalance(wallet.address, csGrtContract);
-    if (csMaticBalance > 1000000) {
-        await withdrawToken(wallet, csMaticBalance - 1000000);
-    }
+    // let csMaticBalance = await getTokenBalance(wallet.address, csGrtContract);
+    // if (csMaticBalance > 1000000) {
+    //     await withdrawToken(wallet, csMaticBalance - 1000000);
+    // }
     let orderIds = await getClaimableOrders(wallet.address);
     if (orderIds.length > 0) {
+        console.log(wallet.address)
         await claim(wallet, orderIds);
     }
 }
