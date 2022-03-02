@@ -96,7 +96,7 @@ function claim(wallet, orderIds) {
             console.log(`${wallet.address} claimed ` + orderIds);
             resolve(true);
         }).catch(err => {
-            console.log("Claim error: " + err.reason);
+            console.log(`${wallet.address} Claim error: ${err.reason}`);
             resolve(false)
         });
     });
