@@ -97,6 +97,9 @@ function claim(wallet, orderIds) {
             resolve(true);
         }).catch(err => {
             console.log(`${wallet.address} Claim error: ${err.reason}`);
+            for (let orderId of orderIds) {
+                writeOutput('rinkeby_orders.txt', `${wallet.address}:${orderId}:0\n`);
+            }
             resolve(false)
         });
     });
