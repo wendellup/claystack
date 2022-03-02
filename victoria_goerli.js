@@ -182,7 +182,7 @@ function getClaimableOrders(myAddress) {
                         }
                     } else {
                         let currentTimestamp = Math.floor((new Date().getTime()) / 1000);
-                        if (currentTimestamp - withdrewTimestamp > 66800) {
+                        if (currentTimestamp - withdrewTimestamp > 46800) {
                             claimOrders.push(orderId);
                         }
                     }
